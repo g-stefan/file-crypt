@@ -10,10 +10,10 @@
 #ifndef FILE_CRYPT_VERSION_HPP
 #define FILE_CRYPT_VERSION_HPP
 
-#define FILE_CRYPT_VERSION_ABCD                1,1,0,3
-#define FILE_CRYPT_VERSION_STR                 "1.1.0"
-#define FILE_CRYPT_VERSION_STR_BUILD           "3"
-#define FILE_CRYPT_VERSION_STR_DATETIME        "2020-09-14 00:18:09"
+#define FILE_CRYPT_VERSION_ABCD                1,2,0,4
+#define FILE_CRYPT_VERSION_STR                 "1.2.0"
+#define FILE_CRYPT_VERSION_STR_BUILD           "4"
+#define FILE_CRYPT_VERSION_STR_DATETIME        "2020-09-21 17:38:55"
 
 #ifndef XYO_RC
 
