@@ -13,9 +13,9 @@ namespace FileCrypt {
 	namespace Version {
 
 		static const char *version_ = "1.2.0";
-		static const char *build_ = "4";
-		static const char *versionWithBuild_ = "1.2.0.4";
-		static const char *datetime_ = "2020-09-21 17:38:55";
+		static const char *build_ = "5";
+		static const char *versionWithBuild_ = "1.2.0.5";
+		static const char *datetime_ = "2020-12-01 21:00:40";
 
 		const char *version() {
 			return version_;
