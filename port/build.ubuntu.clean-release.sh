@@ -3,6 +3,6 @@
 # http://unlicense.org/
 # Created by Grigore Stefan <g_stefan@yahoo.com>
 
-echo "-> clean-local-release file-crypt"
+echo "-> clean-release file-crypt"
 
 rm -rf release
