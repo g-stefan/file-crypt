@@ -3,8 +3,7 @@ rem Public domain
 rem http://unlicense.org/
 rem Created by Grigore Stefan <g_stefan@yahoo.com>
 
-echo -^> sign file-crypt
+echo -^> clean file-crypt
 
-pushd bin
-for /r %%i in (*.exe) do call grigore-stefan.sign "File Crypt" "%%i"
-popd
+if exist output\ rmdir /Q /S output
+if exist temp\ rmdir /Q /S temp

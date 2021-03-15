@@ -5,5 +5,5 @@
 
 echo "-> clean file-crypt"
 
-rm -rf bin
-rm -rf build
+rm -rf output
+rm -rf temp
