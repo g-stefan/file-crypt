@@ -18,3 +18,4 @@ cmdX(){
 }
 
 cmdX xyo-cc --mode=$ACTION @build/source/file-crypt.compile
+cmdX xyo-cc --mode=$ACTION @build/source/file-crypt.library.compile
