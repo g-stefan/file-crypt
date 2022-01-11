@@ -10,10 +10,10 @@
 #ifndef FILE_CRYPT_VERSION_HPP
 #define FILE_CRYPT_VERSION_HPP
 
-#define FILE_CRYPT_VERSION_ABCD                1,12,0,26
-#define FILE_CRYPT_VERSION_STR                 "1.12.0"
-#define FILE_CRYPT_VERSION_STR_BUILD           "26"
-#define FILE_CRYPT_VERSION_STR_DATETIME        "2022-01-06 13:27:04"
+#define FILE_CRYPT_VERSION_ABCD                1,13,0,32
+#define FILE_CRYPT_VERSION_STR                 "1.13.0"
+#define FILE_CRYPT_VERSION_STR_BUILD           "32"
+#define FILE_CRYPT_VERSION_STR_DATETIME        "2022-01-09 01:13:03"
 
 #ifndef XYO_RC
 

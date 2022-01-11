@@ -28,7 +28,9 @@ namespace FileCrypt {
 		printf("file-crypt - Encrypt/Decrypt file with key\n");
 		showVersion();
 		printf("Usage:\n\n");
+		printf("\tfile-crypt --usage\n");
 		printf("\tfile-crypt --license\n");
+		printf("\tfile-crypt --version\n");
 		printf("\tfile-crypt --encrypt --key str [input] [output]\n");
 		printf("\t\t- Encrypt file [input] into [output] with key\n");
 		printf("\tfile-crypt --decrypt --key str [input] [output]\n");
@@ -96,7 +98,19 @@ namespace FileCrypt {
 		for (i = 1; i < cmdN; ++i) {
 			if (strncmp(cmdS[i], "--", 2) == 0) {
 				opt = &cmdS[i][2];
+				if (strcmp(opt, "usage") == 0) {
+					showLicense();
+					if (cmdN == 2) {
+						return 0;
+					};
+				};
 				if (strcmp(opt, "license") == 0) {
+					showLicense();
+					if (cmdN == 2) {
+						return 0;
+					};
+				};
+				if (strcmp(opt, "version") == 0) {
 					showLicense();
 					if (cmdN == 2) {
 						return 0;
