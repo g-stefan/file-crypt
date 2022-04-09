@@ -17,7 +17,7 @@
 #include "file-crypt-copyright.hpp"
 #include "file-crypt-license.hpp"
 #ifndef FILE_CRYPT_NO_VERSION
-#       include "file-crypt-version.hpp"
+#	include "file-crypt-version.hpp"
 #endif
 
 using namespace XYO;
@@ -67,7 +67,6 @@ namespace FileCrypt {
 #endif
 	};
 
-
 	int Application::main(int cmdN, char *cmdS[]) {
 		int i;
 		char *opt;
@@ -90,7 +89,7 @@ namespace FileCrypt {
 		char *fileOut = nullptr;
 		char *fileKey = nullptr;
 
-		if(cmdN < 2) {
+		if (cmdN < 2) {
 			showUsage();
 			return 1;
 		};
@@ -126,7 +125,7 @@ namespace FileCrypt {
 				if (strcmp(opt, "key") == 0) {
 					keyIsStr = true;
 					++i;
-					if(i >= cmdN) {
+					if (i >= cmdN) {
 						printf("Error: Invalid parameters\r\n");
 						return 1;
 					};
@@ -136,7 +135,7 @@ namespace FileCrypt {
 				if (strcmp(opt, "key-hex") == 0) {
 					keyIsHex = true;
 					++i;
-					if(i >= cmdN) {
+					if (i >= cmdN) {
 						printf("Error: Invalid parameters\r\n");
 						return 1;
 					};
@@ -146,7 +145,7 @@ namespace FileCrypt {
 				if (strcmp(opt, "key-sha512") == 0) {
 					keyIsSHA512 = true;
 					++i;
-					if(i >= cmdN) {
+					if (i >= cmdN) {
 						printf("Error: Invalid parameters\r\n");
 						return 1;
 					};
@@ -157,7 +156,7 @@ namespace FileCrypt {
 					doEncrypt = true;
 					keyIsGenerated = true;
 					++i;
-					if(i >= cmdN) {
+					if (i >= cmdN) {
 						printf("Error: Invalid parameters\r\n");
 						return 1;
 					};
@@ -169,7 +168,7 @@ namespace FileCrypt {
 					doDecrypt = true;
 					keyIsGenerated = true;
 					++i;
-					if(i >= cmdN) {
+					if (i >= cmdN) {
 						printf("Error: Invalid parameters\r\n");
 						return 1;
 					};
@@ -181,13 +180,13 @@ namespace FileCrypt {
 					keyIsSHA512 = true;
 					keyWrite = true;
 					++i;
-					if(i >= cmdN) {
+					if (i >= cmdN) {
 						printf("Error: Invalid parameters\r\n");
 						return 1;
 					};
 					keyInput = cmdS[i];
 					++i;
-					if(i >= cmdN) {
+					if (i >= cmdN) {
 						printf("Error: Invalid parameters\r\n");
 						return 1;
 					};
@@ -197,7 +196,7 @@ namespace FileCrypt {
 				if (strcmp(opt, "key-read") == 0) {
 					keyRead = true;
 					++i;
-					if(i >= cmdN) {
+					if (i >= cmdN) {
 						printf("Error: Invalid parameters\r\n");
 						return 1;
 					};
@@ -207,20 +206,20 @@ namespace FileCrypt {
 				if (strcmp(opt, "gen-key-sha512-write") == 0) {
 					keySHA512Write = true;
 					++i;
-					if(i >= cmdN) {
+					if (i >= cmdN) {
 						printf("Error: Invalid parameters\r\n");
 						return 1;
 					};
 					keyInput = cmdS[i];
 					++i;
-					if(i >= cmdN) {
+					if (i >= cmdN) {
 						printf("Error: Invalid parameters\r\n");
 						return 1;
 					};
 					fileKey = cmdS[i];
 				};
 
-				if(strcmp(opt, "extract-integrity") == 0) {
+				if (strcmp(opt, "extract-integrity") == 0) {
 					extractIntegrity = true;
 				};
 
@@ -236,15 +235,15 @@ namespace FileCrypt {
 			};
 		};
 
-		if(extractIntegrity) {
-			if((fileIn == nullptr) || (fileOut == nullptr)) {
+		if (extractIntegrity) {
+			if ((fileIn == nullptr) || (fileOut == nullptr)) {
 				printf("Error: Invalid parameters\r\n");
 				return 1;
 			};
 			Buffer integrity;
-			if(Shell::fileGetContents(fileIn, integrity)) {
-				if(integrity.length >= 128) {
-					if(Shell::filePutContents(fileOut, &integrity.buffer[64], 64)) {
+			if (Shell::fileGetContents(fileIn, integrity)) {
+				if (integrity.length >= 128) {
+					if (Shell::filePutContents(fileOut, &integrity.buffer[64], 64)) {
 						return 0;
 					};
 				};
@@ -252,14 +251,14 @@ namespace FileCrypt {
 			return 1;
 		};
 
-		if(keySHA512Write) {
+		if (keySHA512Write) {
 
-			if(fileKey) {
+			if (fileKey) {
 				Buffer key;
 				key.setSize(64);
 				key.length = key.size;
 				SHA512::hashStringToU8(keyInput, key.buffer);
-				if(Shell::filePutContents(fileKey, key.buffer, 64)) {
+				if (Shell::filePutContents(fileKey, key.buffer, 64)) {
 					return 0;
 				};
 				return 1;
@@ -269,15 +268,15 @@ namespace FileCrypt {
 			return 1;
 		};
 
-		if((fileIn == nullptr) || (fileOut == nullptr)) {
+		if ((fileIn == nullptr) || (fileOut == nullptr)) {
 			printf("Error: Invalid parameters\r\n");
 			return 1;
 		};
 
-		if((keyIsGenerated) && (fileKey != nullptr) && (doEncrypt || doDecrypt)) {
-			if(doEncrypt) {
+		if ((keyIsGenerated) && (fileKey != nullptr) && (doEncrypt || doDecrypt)) {
+			if (doEncrypt) {
 				Buffer fileInBuffer;
-				if(Shell::fileGetContents(fileIn, fileInBuffer)) {
+				if (Shell::fileGetContents(fileIn, fileInBuffer)) {
 					SHA512 randomKey;
 					uint8_t randomKeyData[64];
 					randomKey.processInit();
@@ -286,17 +285,17 @@ namespace FileCrypt {
 					randomKey.processU8(randomKeyData, 8);
 					randomKey.processDone();
 					randomKey.toU8(randomKeyData);
-					if(Shell::filePutContents(fileKey, randomKeyData, 64)) {
-						if(Crypt::passwordEncryptFile(randomKeyData, 64, fileIn, fileOut)) {
+					if (Shell::filePutContents(fileKey, randomKeyData, 64)) {
+						if (Crypt::passwordEncryptFile(randomKeyData, 64, fileIn, fileOut)) {
 							return 0;
 						};
 					};
 				};
 			};
-			if(doDecrypt) {
+			if (doDecrypt) {
 				Buffer fileKeyBuffer;
-				if(Shell::fileGetContents(fileKey, fileKeyBuffer)) {
-					if(Crypt::passwordDecryptFile(fileKeyBuffer.buffer, fileKeyBuffer.length, fileIn, fileOut)) {
+				if (Shell::fileGetContents(fileKey, fileKeyBuffer)) {
+					if (Crypt::passwordDecryptFile(fileKeyBuffer.buffer, fileKeyBuffer.length, fileIn, fileOut)) {
 						return 0;
 					};
 				};
@@ -304,39 +303,39 @@ namespace FileCrypt {
 			return 1;
 		};
 
-		if((keyIsHex || keyIsStr || keyIsSHA512 || keyRead) && (keyInput.length() > 0) && (doEncrypt || doDecrypt)) {
+		if ((keyIsHex || keyIsStr || keyIsSHA512 || keyRead) && (keyInput.length() > 0) && (doEncrypt || doDecrypt)) {
 			Buffer key;
-			if(keyIsHex) {
+			if (keyIsHex) {
 				key.fromHex(keyInput);
 			};
-			if(keyIsStr) {
+			if (keyIsStr) {
 				key.fromString(keyInput);
 			};
-			if(keyIsSHA512) {
+			if (keyIsSHA512) {
 				key.setSize(64);
 				key.length = key.size;
 				SHA512::hashStringToU8(keyInput, key.buffer);
 			};
-			if(keyWrite) {
-				if(!Shell::filePutContents(fileKey, key.buffer, 64)) {
+			if (keyWrite) {
+				if (!Shell::filePutContents(fileKey, key.buffer, 64)) {
 					return 1;
 				};
 			};
-			if(keyRead) {
-				if(!Shell::fileGetContents(fileKey, key)) {
+			if (keyRead) {
+				if (!Shell::fileGetContents(fileKey, key)) {
 					return 1;
 				};
 			};
 
-			if(doEncrypt) {
-				if(Crypt::passwordEncryptFile(key.buffer, key.length, fileIn, fileOut)) {
+			if (doEncrypt) {
+				if (Crypt::passwordEncryptFile(key.buffer, key.length, fileIn, fileOut)) {
 					return 0;
 				};
 				return 1;
 			};
 
-			if(doDecrypt) {
-				if(Crypt::passwordDecryptFile(key.buffer, key.length, fileIn, fileOut)) {
+			if (doDecrypt) {
+				if (Crypt::passwordDecryptFile(key.buffer, key.length, fileIn, fileOut)) {
 					return 0;
 				};
 				return 1;
