@@ -1,0 +1,14 @@
+{
+	"project": {
+		"name":"file-crypt",
+		"type":"xyo-cpp",
+		"make" : "exe.static",
+		"SPDX-License-Identifier": "MIT",
+		"sourcePath" : "XYO/FileCrypt",
+		"outputPath" : "output",
+		"dependency" : [
+			"xyo-system",
+			"xyo-cryptography"
+		]
+	}
+}

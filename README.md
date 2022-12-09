@@ -4,6 +4,5 @@ Encrypt/Decrypt file with key
 
 ## License
 
-Copyright (c) Grigore Stefan
-
+Copyright (c) 2022 Grigore Stefan
 Licensed under the [MIT](LICENSE) license.

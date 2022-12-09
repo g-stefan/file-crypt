@@ -1,0 +1,13 @@
+// File Crypt
+// Copyright (c) 2022 Grigore Stefan <g_stefan@yahoo.com>
+// MIT License (MIT) <http://opensource.org/licenses/MIT>
+// SPDX-FileCopyrightText: 2022 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-License-Identifier: MIT
+
+#include <XYO/FileCrypt/Application.rh>
+#include <XYO/FileCrypt/Copyright.rh>
+#include <XYO/FileCrypt/Version.rh>
+
+1  ICON "Application.ico"
+
+XYO_APPLICATION_VERSION_INFO(XYO_FILECRYPT,"file-crypt.exe","File Crypt")
