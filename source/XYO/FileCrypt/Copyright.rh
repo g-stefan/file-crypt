@@ -7,10 +7,9 @@
 #ifndef XYO_FILECRYPT_COPYRIGHT_RH
 #define XYO_FILECRYPT_COPYRIGHT_RH
 
-#define XYO_FILECRYPT_COPYRIGHT "Copyright (c) 2022 Grigore Stefan"
+#define XYO_FILECRYPT_COPYRIGHT "Copyright (c) 2022 Grigore Stefan <g_stefan@yahoo.com>"
 #define XYO_FILECRYPT_PUBLISHER "Grigore Stefan"
 #define XYO_FILECRYPT_COMPANY XYO_FILECRYPT_PUBLISHER
 #define XYO_FILECRYPT_CONTACT "g_stefan@yahoo.com"
-#define XYO_FILECRYPT_FULL_COPYRIGHT XYO_FILECRYPT_COPYRIGHT " <" XYO_FILECRYPT_CONTACT ">"
 
 #endif

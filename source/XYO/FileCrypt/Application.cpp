@@ -44,8 +44,8 @@ namespace XYO::FileCrypt {
 		printf("\t\t- Save integrity check from encrypted [file] to [integrity]\n");
 	};
 
-	void Application::showLicense() {		
-		printf("%s%s", FileCrypt::License::licenseHeader(), FileCrypt::License::licenseBody());		
+	void Application::showLicense() {
+		printf("%s", FileCrypt::License::license());
 	};
 
 	void Application::showVersion() {
@@ -53,7 +53,7 @@ namespace XYO::FileCrypt {
 	};
 
 	void Application::initMemory() {
-		String::initMemory();		
+		String::initMemory();
 	};
 
 	int Application::main(int cmdN, char *cmdS[]) {
