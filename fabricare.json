@@ -9,6 +9,8 @@
 		"dependency" : [
 			"xyo-system",
 			"xyo-cryptography"
-		]
+		],
+		"hasRelease" : true,
+		"githubRelease" : true
 	}
 }
