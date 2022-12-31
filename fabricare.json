@@ -5,12 +5,12 @@
 		"make" : "exe.static",
 		"SPDX-License-Identifier": "MIT",
 		"sourcePath" : "XYO/FileCrypt",
-		"outputPath" : "output",
 		"dependency" : [
 			"xyo-system",
 			"xyo-cryptography"
 		],
 		"hasRelease" : true,
-		"githubRelease" : true
+		"githubRelease" : true,
+		"releaseDev" : false
 	}
 }
