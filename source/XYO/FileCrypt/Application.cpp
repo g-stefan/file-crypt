@@ -14,38 +14,40 @@ namespace XYO::FileCrypt {
 	void Application::showUsage() {
 		printf("file-crypt - Encrypt/Decrypt file with key\n");
 		showVersion();
-		printf("Usage:\n\n");
-		printf("\tfile-crypt --usage\n");
-		printf("\tfile-crypt --license\n");
-		printf("\tfile-crypt --version\n");
-		printf("\tfile-crypt --encrypt --key str [input] [output]\n");
-		printf("\t\t- Encrypt file [input] into [output] with key\n");
-		printf("\tfile-crypt --decrypt --key str [input] [output]\n");
-		printf("\t\t- Decrypt file [input] into [output] with key\n");
-		printf("\tfile-crypt --encrypt --key-sha512 key [input] [output]\n");
-		printf("\t\t- Encrypt file [input] into [output] with SHA512(key)\n");
-		printf("\tfile-crypt --decrypt --key-sha512 key [input] [output]\n");
-		printf("\t\t- Decrypt file [input] into [output] with SHA512(key)\n");
-		printf("\tfile-crypt --encrypt --key-hex hex [input] [output]\n");
-		printf("\t\t- Encrypt file [input] into [output] with un-hex(key)\n");
-		printf("\tfile-crypt --decrypt --key-hex hex [input] [output]\n");
-		printf("\t\t- Decrypt file [input] into [output] with un-hex(key)\n");
-		printf("\tfile-crypt --gen-key-encrypt [key] [input] [output]\n");
-		printf("\t\t- Encrypt file [input] into [output] with generated [key]\n");
-		printf("\tfile-crypt --gen-key-decrypt [key] [input] [output]\n");
-		printf("\t\t- Decrypt file [input] into [output] with generated [key]\n");
-		printf("\tfile-crypt --encrypt --key-sha512-write key [key] [input] [output]\n");
-		printf("\t\t- Encrypt file [input] into [output] with SHA512(key) and save key to [key]\n");
-		printf("\tfile-crypt --encrypt --key-read [key] [input] [output]\n");
-		printf("\t\t- Encrypt file [input] into [output] with key read from [key]\n");
-		printf("\tfile-crypt --gen-key-sha512-write key [key]\n");
-		printf("\t\t- Save SHA512(key) to [key]\n");
-		printf("\tfile-crypt --extract-integrity [file] [integrity]\n");
-		printf("\t\t- Save integrity check from encrypted [file] to [integrity]\n");
+		printf("%s\n\n", FileCrypt::Copyright::copyright().c_str());
+
+		printf("options:\n"
+		       "    --usage\n"
+		       "     --license\n"
+		       "     --version\n"
+		       "     --encrypt --key str [input] [output]\n"
+		       "       encrypt file [input] into [output] with key\n"
+		       "     --decrypt --key str [input] [output]\n"
+		       "       decrypt file [input] into [output] with key\n"
+		       "     --encrypt --key-sha512 key [input] [output]\n"
+		       "       encrypt file [input] into [output] with SHA512(key)\n"
+		       "     --decrypt --key-sha512 key [input] [output]\n"
+		       "       decrypt file [input] into [output] with SHA512(key)\n"
+		       "     --encrypt --key-hex hex [input] [output]\n"
+		       "       encrypt file [input] into [output] with un-hex(key)\n"
+		       "     --decrypt --key-hex hex [input] [output]\n"
+		       "       decrypt file [input] into [output] with un-hex(key)\n"
+		       "     --gen-key-encrypt [key] [input] [output]\n"
+		       "       encrypt file [input] into [output] with generated [key]\n"
+		       "     --gen-key-decrypt [key] [input] [output]\n"
+		       "       decrypt file [input] into [output] with generated [key]\n"
+		       "     --encrypt --key-sha512-write key [key] [input] [output]\n"
+		       "       encrypt file [input] into [output] with SHA512(key) and save key to [key]\n"
+		       "     --encrypt --key-read [key] [input] [output]\n"
+		       "       encrypt file [input] into [output] with key read from [key]\n"
+		       "     --gen-key-sha512-write key [key]\n"
+		       "       save SHA512(key) to [key]\n"
+		       "     --extract-integrity [file] [integrity]\n"
+		       "       save integrity check from encrypted [file] to [integrity]\n");
 	};
 
 	void Application::showLicense() {
-		printf("%s", FileCrypt::License::license());
+		printf("%s", FileCrypt::License::license().c_str());
 	};
 
 	void Application::showVersion() {
