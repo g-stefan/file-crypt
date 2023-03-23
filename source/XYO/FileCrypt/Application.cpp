@@ -14,7 +14,7 @@ namespace XYO::FileCrypt {
 	void Application::showUsage() {
 		printf("file-crypt - Encrypt/Decrypt file with key\n");
 		showVersion();
-		printf("%s\n\n", FileCrypt::Copyright::copyright().c_str());
+		printf("%s\n\n", FileCrypt::Copyright::copyright());
 
 		printf("options:\n"
 		       "    --usage\n"
