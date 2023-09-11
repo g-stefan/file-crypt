@@ -17,33 +17,34 @@ namespace XYO::FileCrypt {
 		printf("%s\n\n", FileCrypt::Copyright::copyright());
 
 		printf("options:\n"
+		       "    --help\n"
 		       "    --usage\n"
-		       "     --license\n"
-		       "     --version\n"
-		       "     --encrypt --key str [input] [output]\n"
-		       "       encrypt file [input] into [output] with key\n"
-		       "     --decrypt --key str [input] [output]\n"
-		       "       decrypt file [input] into [output] with key\n"
-		       "     --encrypt --key-sha512 key [input] [output]\n"
-		       "       encrypt file [input] into [output] with SHA512(key)\n"
-		       "     --decrypt --key-sha512 key [input] [output]\n"
-		       "       decrypt file [input] into [output] with SHA512(key)\n"
-		       "     --encrypt --key-hex hex [input] [output]\n"
-		       "       encrypt file [input] into [output] with un-hex(key)\n"
-		       "     --decrypt --key-hex hex [input] [output]\n"
-		       "       decrypt file [input] into [output] with un-hex(key)\n"
-		       "     --gen-key-encrypt [key] [input] [output]\n"
-		       "       encrypt file [input] into [output] with generated [key]\n"
-		       "     --gen-key-decrypt [key] [input] [output]\n"
-		       "       decrypt file [input] into [output] with generated [key]\n"
-		       "     --encrypt --key-sha512-write key [key] [input] [output]\n"
-		       "       encrypt file [input] into [output] with SHA512(key) and save key to [key]\n"
-		       "     --encrypt --key-read [key] [input] [output]\n"
-		       "       encrypt file [input] into [output] with key read from [key]\n"
-		       "     --gen-key-sha512-write key [key]\n"
-		       "       save SHA512(key) to [key]\n"
-		       "     --extract-integrity [file] [integrity]\n"
-		       "       save integrity check from encrypted [file] to [integrity]\n");
+		       "    --license\n"
+		       "    --version\n"
+		       "    --encrypt --key str [input] [output]\n"
+		       "      encrypt file [input] into [output] with key\n"
+		       "    --decrypt --key str [input] [output]\n"
+		       "      decrypt file [input] into [output] with key\n"
+		       "    --encrypt --key-sha512 key [input] [output]\n"
+		       "      encrypt file [input] into [output] with SHA512(key)\n"
+		       "    --decrypt --key-sha512 key [input] [output]\n"
+		       "      decrypt file [input] into [output] with SHA512(key)\n"
+		       "    --encrypt --key-hex hex [input] [output]\n"
+		       "      encrypt file [input] into [output] with un-hex(key)\n"
+		       "    --decrypt --key-hex hex [input] [output]\n"
+		       "      decrypt file [input] into [output] with un-hex(key)\n"
+		       "    --gen-key-encrypt [key] [input] [output]\n"
+		       "      encrypt file [input] into [output] with generated [key]\n"
+		       "    --gen-key-decrypt [key] [input] [output]\n"
+		       "      decrypt file [input] into [output] with generated [key]\n"
+		       "    --encrypt --key-sha512-write key [key] [input] [output]\n"
+		       "      encrypt file [input] into [output] with SHA512(key) and save key to [key]\n"
+		       "    --encrypt --key-read [key] [input] [output]\n"
+		       "      encrypt file [input] into [output] with key read from [key]\n"
+		       "    --gen-key-sha512-write key [key]\n"
+		       "      save SHA512(key) to [key]\n"
+		       "    --extract-integrity [file] [integrity]\n"
+		       "      save integrity check from encrypted [file] to [integrity]\n");
 	};
 
 	void Application::showLicense() {
@@ -88,6 +89,12 @@ namespace XYO::FileCrypt {
 		for (i = 1; i < cmdN; ++i) {
 			if (strncmp(cmdS[i], "--", 2) == 0) {
 				opt = &cmdS[i][2];
+				if (strcmp(opt, "help") == 0) {
+					showLicense();
+					if (cmdN == 2) {
+						return 0;
+					};
+				};
 				if (strcmp(opt, "usage") == 0) {
 					showLicense();
 					if (cmdN == 2) {
