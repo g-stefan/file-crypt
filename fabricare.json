@@ -1,5 +1,6 @@
 {
 	"solution": {
+		"namespace" : "xyo",
 		"name" : "file-crypt",
 		"type" : "xyo-cpp",
 		"projects": [

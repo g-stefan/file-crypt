@@ -41,6 +41,8 @@ namespace XYO::FileCrypt {
 		       "      encrypt file [input] into [output] with SHA512(key) and save key to [key]\n"
 		       "    --encrypt --key-read [key] [input] [output]\n"
 		       "      encrypt file [input] into [output] with key read from [key]\n"
+		       "    --decrypt --key-read [key] [input] [output]\n"
+		       "      decrypt file [input] into [output] with key read from [key]\n"
 		       "    --gen-key-sha512-write key [key]\n"
 		       "      save SHA512(key) to [key]\n"
 		       "    --extract-integrity [file] [integrity]\n"
@@ -90,13 +92,13 @@ namespace XYO::FileCrypt {
 			if (strncmp(cmdS[i], "--", 2) == 0) {
 				opt = &cmdS[i][2];
 				if (strcmp(opt, "help") == 0) {
-					showLicense();
+					showUsage();
 					if (cmdN == 2) {
 						return 0;
 					};
 				};
 				if (strcmp(opt, "usage") == 0) {
-					showLicense();
+					showUsage();
 					if (cmdN == 2) {
 						return 0;
 					};
@@ -108,7 +110,7 @@ namespace XYO::FileCrypt {
 					};
 				};
 				if (strcmp(opt, "version") == 0) {
-					showLicense();
+					showVersion();
 					if (cmdN == 2) {
 						return 0;
 					};
@@ -301,7 +303,7 @@ namespace XYO::FileCrypt {
 			return 1;
 		};
 
-		if ((keyIsHex || keyIsStr || keyIsSHA512 || keyRead) && (keyInput.length() > 0) && (doEncrypt || doDecrypt)) {
+		if ((keyIsHex || keyIsStr || keyIsSHA512 || keyRead) && ((keyInput.length() > 0) || keyRead) && (doEncrypt || doDecrypt)) {
 			Buffer key;
 			if (keyIsHex) {
 				key.fromHex(keyInput);
@@ -321,6 +323,10 @@ namespace XYO::FileCrypt {
 			};
 			if (keyRead) {
 				if (!Shell::fileGetContents(fileKey, key)) {
+					return 1;
+				};
+				if (key.length == 0) {
+					printf("Error: Empty key file\r\n");
 					return 1;
 				};
 			};
